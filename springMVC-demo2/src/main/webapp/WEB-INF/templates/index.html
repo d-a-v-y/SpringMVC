@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<!--thymeleaf命名空间-->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>home page</h1>
+<a th:href="@{/hello/testRequestMapping}">测试RequestMapping注解的位置</a><br>
+<a th:href="@{/testRequestMapping}">测试RequestMapping注解的value属性-->testRequestMapping</a><br>
+<a th:href="@{/test}">测试RequestMapping注解的value属性-->test</a><br>
+<a th:href="@{/test}">测试RequestMapping注解的value属性-->GET</a><br>
+<form th:action="@{/test}" method="post">
+    <input type="submit" value="测试RequestMapping注解的method属性-->POST"><br>
+    <a th:href="@{/testGetMapping}">测试testGetMapping的注解testGetMapping</a>
+</form><br>
+<form th:action="@{/testPut}" method="put">
+    <input type="submit" value="测试form表单能否发送put或delete请求方式"><br>
+</form>
+</body>
+</html>

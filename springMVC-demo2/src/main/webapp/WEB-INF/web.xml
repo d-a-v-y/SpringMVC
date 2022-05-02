@@ -4,21 +4,20 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
 
-    <!--    配置SpringMVC的前端控制器，对浏览器发送对请求进行统一处理-->
+    <!--注册前端控制器DispatcherServlet-->
     <servlet>
-        <servlet-name>SpringMVC</servlet-name>
+        <servlet-name>DispatcherServlet</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-        <!--        配置SpringMVC配置文件的位置和名称-->
         <init-param>
             <param-name>contextConfigLocation</param-name>
             <param-value>classpath:springMVC.xml</param-value>
         </init-param>
-        <!--        将前端控制器DispatcherServlet的初始化时间提前到服务器启动时-->
+        <!--将前端控制器启动提前到服务器启动时-->
         <load-on-startup>1</load-on-startup>
     </servlet>
+
     <servlet-mapping>
-        <servlet-name>SpringMVC</servlet-name>
-        <!--"/"除了jsp无法匹配，其他前端页面几乎都能匹配        -->
+        <servlet-name>DispatcherServlet</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
 </web-app>
