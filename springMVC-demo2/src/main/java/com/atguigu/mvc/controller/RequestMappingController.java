@@ -2,6 +2,7 @@ package com.atguigu.mvc.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -14,15 +15,15 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class RequestMappingController {
 
     @RequestMapping(
-            value = {"/testRequestMapping","/test"},
-            method = {RequestMethod.GET,RequestMethod.POST}
+            value = {"/testRequestMapping", "/test"},
+            method = {RequestMethod.GET, RequestMethod.POST}
     )
-    public String success(){
+    public String success() {
         return "success";
     }
 
     @GetMapping("/testGetMapping")
-    public String testGetMapping(){
+    public String testGetMapping() {
         return "success";
     }
 
@@ -30,7 +31,29 @@ public class RequestMappingController {
             value = "/testPut",
             method = RequestMethod.PUT
     )
-    public String testPut(){
+    public String testPut() {
+        return "success";
+    }
+
+    @RequestMapping(
+            value = {"testParamsAndHeaders"},
+            params = {"username"},
+            headers = {"Host=localhost:8081"}
+    )
+    public String testParamsAndHeaders(){
+        return "success";
+    }
+
+//    @RequestMapping("/a?a/testAnt")
+//    @RequestMapping("/a*a/testAnt")
+    @RequestMapping("/**/testAnt")
+    public String test(){
+        return "success";
+    }
+
+    @RequestMapping("/testPath/{id}/{username}")
+    public String testPath(@PathVariable("id")Integer id,@PathVariable("username")String username){
+        System.out.println("id:"+id+"username:"+username);
         return "success";
     }
 }
