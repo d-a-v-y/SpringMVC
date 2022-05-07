@@ -5,10 +5,10 @@
        xmlns:mvc="http://www.springframework.org/schema/mvc"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
-    <!--扫描组件-->
-    <context:component-scan base-package="com.atguigu.rest"></context:component-scan>
+    <!--扫描组建-->
+    <context:component-scan base-package="com.atguigu.mvc.controller"></context:component-scan>
 
-    <!--配置Thymeleaf视图解析器-->
+    <!--配置试图解析器-->
     <bean id="viewResolver" class="org.thymeleaf.spring5.view.ThymeleafViewResolver">
         <property name="order" value="1"/>
         <property name="characterEncoding" value="UTF-8"/>
@@ -30,13 +30,10 @@
         </property>
     </bean>
 
-    <!--配置视图控制器-->
     <mvc:view-controller path="/" view-name="index"></mvc:view-controller>
-    <mvc:view-controller path="/toAdd" view-name="employee_add"></mvc:view-controller>
 
-    <!--开放对静态资源的访问--><!--若只加这一行，都是default servlet处理的-->
-    <mvc:default-servlet-handler/><!--不加这一行，都是DispatcherServlet处理的-->
+    <mvc:default-servlet-handler/>
 
-    <!--开启mvc注解驱动--><!--加上这一行，先由DispatcherServlet处理，若DispatcherServlet处理不了，则由default servlet处理-->
+    <!--开启MVC的注解驱动-->
     <mvc:annotation-driven/>
 </beans>
