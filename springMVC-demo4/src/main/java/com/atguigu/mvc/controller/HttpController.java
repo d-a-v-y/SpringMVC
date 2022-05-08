@@ -1,5 +1,6 @@
 package com.atguigu.mvc.controller;
 
+import com.atguigu.mvc.bean.User;
 import org.springframework.http.RequestEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -37,7 +38,20 @@ public class HttpController {
 
     @RequestMapping("/testResponseBody")
     @ResponseBody
-    public String testResponseBody(){
+    public String testResponseBody() {
         return "SUCCESS";
+    }
+
+    @RequestMapping("/testResponseUser")
+    @ResponseBody
+    public User testResponseUser(){
+        return new User(111,"翟","123456",25,"男");
+    }
+
+    @RequestMapping("/testAxios")
+    @ResponseBody
+    public String testAxios(String username,String password){
+        System.out.println(username+","+password);
+        return "Hello!axios!";
     }
 }
